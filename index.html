@@ -1,0 +1,290 @@
+<?php
+$conn = mysqli_connect('localhost','root','','contact_db') or die('connection failed');
+
+if(isset($_POST['submit'])){
+    $name = mysqli_real_escape_string($conn,$_POST['name']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $number = $_POST['name'];
+    $date = $_POST['date'];
+
+    $insert = mysqli_query($conn, "INSERT INTO `contact_form`(name,email,number,date) VALUES('$name','$email','$number','$date')") or die('query failed');
+
+    if($insert){
+        $message[] = 'appoinment made successfully!';
+    }
+    else{
+        $message[] = 'appoinment failed';
+    } 
+
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentist Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></link>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"></link>
+
+    <link rel="stylesheet" href="style.css"></link>
+
+</head>
+<body>
+    <header class="header fixed-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                
+                <a href="#home" class="logo"> dental<span>Care.</span></a>
+
+                <nav class="nav">
+                    <a href="#home">home</a>
+                    <a href="#about">about</a>
+                    <a href="#services">services</a>
+                    <a href="#reviews">reviwes</a>
+                    <a href="#contact">contact</a>
+                    
+                </nav>
+                
+
+                <div id="menu-btn" class="fas fa-bars"></div>
+        
+            </div>
+        </div>
+    </header>
+
+<!--home section start-->
+<section class="home" id="home">
+    <div class="conainer">
+        <div class="row min-vh-100 align-items-center">
+            <div class="content text-center text-md-left" >
+                <h3>let us brihgten your smile</h3>
+                <p> Exceptional Dental Care for a Brighter, Healthier Smile. Your Comfort and Confidence Are Our Top Priority.</p>
+                <a href="#contect" class="link-btn"> make appoinment</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--About section-->
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 image">
+                <img src="/assets/aboutImage.jpg" class="w-100 mb-5 mb-md-0" alt="">
+            </div>
+            <div class="col-md-6 content">
+                <span>About us</span>
+                <h3>True health care for your family</h3>
+                <p> we are dedicated to providing personalized and compassionate dental services. Our expert team utilizes the latest technology to ensure your optimal oral health. Experience a welcoming environment where your smile is our top priority.</p>
+                <a href="#contact" class="link-btn">Make appoinment</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Services-->
+
+<section class="services" id="services">
+    <h1 class="heading">Our services</h1>
+        <div class="box-container container">
+            
+            <div class="box">
+                <img src="/assets/services1.jpeg" alt="">
+                <h3>Alignment specialist</h3>
+                <p>Expert alignment specialists ensuring your smile is perfectly aligned and healthy.</p>
+            </div>
+
+            <div class="box">
+                <img src="/assets/services2.jpeg" alt="">
+                <h3>Cosmetic Dentistry</h3>
+                <p>Transform your smile with our advanced cosmetic dentistry solutions.</p>
+            </div>
+
+            <div class="box">
+                <img src="/assets/services3.jpeg" alt="">
+                <h3>Oral Hygiene Experts</h3>
+                <p>Trust our oral hygiene experts to maintain your healthiest, brightest smile.</p>
+            </div>
+
+            <div class="box">
+                <img src="/assets/services4.png" alt="">
+                <h3>Root Canal Specialist</h3>
+                <p>Experience pain-free treatment with our skilled root canal specialists.</p>
+            </div>
+
+            <div class="box">
+                <img src="/assets/services5.jpeg" alt="">
+                <h3>Live Dental Advisory</h3>
+                <p>Get real-time guidance with our live dental advisory services.</p>
+            </div>
+
+            <div class="box">
+                <img src="/assets/services6.jpeg" alt="">
+                <h3>Cavity Inspection</h3>
+                <p>Detect and prevent cavities early with our thorough inspection services.</p>
+            </div>
+
+            
+        </div>
+</section>
+
+
+<!--Process section-->
+<section class="process">
+    <h1 class="heading">Work process</h1>
+    <div class="box-container container">
+        <div class="box">
+            <img src="/assets/workPro1.jpeg" alt="">
+             <h3>Cosmetic Dentistry</h3>
+             <p>Our cosmetic dentistry work process ensures meticulous attention to detail for stunning results </p>
+        </div>
+
+        <div class="box">
+            <img src="/assets/workPro2.jpg" alt="">
+             <h3>Pediatric Dentistry</h3>
+             <p>Our pediatric dentistry work process prioritizes gentle care and positive experiences for children.</p>
+        </div>
+
+        <div class="box">
+            <img src="/assets/workPro3.jpg" alt="">
+             <h3>Dental Implants</h3>
+             <p>Our dental implant work process combines precision and expertise for lasting, natural-looking results.</p>
+        </div>
+    </div>
+    
+</section>
+
+
+
+<!--rewiews section-->
+
+<section class="reviews" id="reviews">
+    <h1 class="heading">Satisfied Client</h1>
+    <div class="box-container container">
+        <div class="box">
+            <img src="/assets/client1.jpeg" alt="">
+            <p>Outstanding service! The team at [Dental Practice] made my dental implant procedure smooth and painless. Highly recommend their expertise and friendly approach.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <h3>Alexe </h3>
+            <span>Satisfied client</span>
+        </div>
+
+        <div class="box">
+            <img src="/assets/client2.jpeg" alt="">
+            <p>Exceptional care! made my child's visit enjoyable with their gentle approach to pediatric dentistry. Highly professional and friendly staff.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <h3>Zaara</h3>
+            <span>Satisfied client</span>
+        </div>
+
+        <div class="box">
+            <img src="/assets/client3.jpeg" alt="">
+            <p>I'm delighted with the cosmetic dentistry work done at Dental care. They transformed my smile beautifully, and the team was incredibly supportive throughout the process.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <h3>Rock</h3>
+            <span>Satisfied client</span>
+        </div>
+    </div>
+</section>
+
+
+<!--contact section-->
+
+<section class="contact" id="contact">
+    <h1 class="heading">make appoinment</h1>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <?php
+            if(isset($message)){
+               foreach($message as $message){
+                echo '<p class="message">'.$message.'</p>';
+               }
+            }
+        ?>
+        
+        <span>your name:</span>
+        <input type="text" name="name" placeholder="enter your name" class="box" required >
+        <span>your email:</span>
+        <input type="email" name="email" placeholder="enter your email" class="box" required>
+        <span>your number:</span>
+        <input type="number" name="number" placeholder="enter your number" class="box" required>
+        <span>appoinment date:</span>
+        <input type="datetime-local" name="date" class="box" required>
+        <input type="submit" value="make appoinment" name="submit" class="link-btn">
+
+    </form>
+</section>
+
+
+<!--footer section-->
+
+<section class="footer">
+    <div class="box-container container"> 
+        <div class="box">
+            <i class="fas fa-phone"></i>
+            <h3>phone number</h3>
+            <p>+94770123456</p>
+            <p>011-1234567</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>our address</h3>
+            <p>colombo, srilanka</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-clock"></i>
+            <h3>opening hours</h3>
+            <p>00:07am to 10:00pm</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-envelope"></i>
+            <h3>email address</h3>
+            <p>dentalcare@gmail.com</p>
+            <p>dentalcare123@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="credit">&copy; copyright @ <?php echo date('Y'); ?> by <span>ashrif hilmy</span></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
